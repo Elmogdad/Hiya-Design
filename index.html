@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المتجر الذهبي</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #D4AF37;
+            --gold-light: #F4E4BC;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        .navbar {
+            background-color: var(--gold);
+        }
+        
+        .navbar-brand, .nav-link {
+            color: white !important;
+        }
+        
+        .hero-section {
+            background-color: var(--gold-light);
+            padding: 4rem 0;
+        }
+        
+        .card {
+            transition: transform 0.3s;
+            margin-bottom: 20px;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .btn-primary {
+            background-color: var(--gold);
+            border-color: var(--gold);
+        }
+        
+        .btn-primary:hover {
+            background-color: #BF9F30;
+            border-color: #BF9F30;
+        }
+        
+        .footer {
+            background-color: var(--gold);
+            color: white;
+            padding: 20px 0;
+            margin-top: 50px;
+        }
+        .product-card {
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            margin-bottom: 25px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .product-features {
+            list-style: none;
+            padding: 0;
+            margin: 10px 0;
+            font-size: 0.9rem;
+        }
+
+        .product-features li {
+            margin-bottom: 5px;
+            color: #555;
+            display: flex;
+            align-items: center;
+        }
+
+        .product-features li:before {
+            content: "✓";
+            color: var(--gold);
+            margin-left: 5px;
+            font-weight: bold;
+        }
+
+        .product-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 10px 0;
+            font-size: 0.85rem;
+            color: #666;
+        }
+
+        .stock-status {
+            color: #28a745;
+            font-weight: 600;
+        }
+
+        .stock-status.low {
+            color: #ffc107;
+        }
+
+        .original-price {
+            text-decoration: line-through;
+            color: #999;
+            font-size: 0.9rem;
+        }
+
+        .product-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .btn-wishlist {
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            background: transparent;
+            padding: 8px;
+            border-radius: 5px;
+            flex: 0 0 50px;
+        }
+
+        .btn-wishlist:hover {
+            background: var(--gold-light);
+        }
+
+        .size-options {
+            display: flex;
+            gap: 5px;
+            margin: 10px 0;
+        }
+
+        .size-option {
+            border: 1px solid #ddd;
+            padding: 5px 10px;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 0.8rem;
+        }
+
+        .size-option:hover {
+            border-color: var(--gold);
+            color: var(--gold);
+        }
+
+        .product-details {
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">المتجر الذهبي</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">الرئيسية</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">المنتجات</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">تواصل معنا</a>
+                    </li>
+                </ul>
+                <div class="d-flex">
+                    <button class="btn btn-light me-2">تسجيل الدخول</button>
+                    <button class="btn btn-outline-light">سلة التسوق</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero-section text-center">
+        <div class="container">
+            <h1 class="display-4">أهلاً بك في المتجر الذهبي</h1>
+            <p class="lead">اكتشف أحدث المنتجات بأفضل الأسعار</p>
+            <button class="btn btn-primary btn-lg">تسوق الآن</button>
+        </div>
+    </div>
+
+    <!-- Products Section -->
+    <div class="container mt-5">
+        <h2 class="text-center mb-4">منتجاتنا المميزة</h2>
+        <div class="row">
+            <!-- منتج 1 -->
+            <div class="col-md-3 col-sm-6">
+                <div class="card product-card">
+                    <span class="discount-badge">خصم 20%</span>
+                    <div class="product-image">
+                        <svg width="100" height="100" viewBox="0 0 100 100">
+                            <rect width="100" height="100" fill="#ddd"/>
+                            <text x="50" y="50" font-family="Arial" font-size="12" fill="#666" text-anchor="middle" dy=".3em">صورة المنتج</text>
+                        </svg>
+                    </div>
+                    <div class="product-details">
+                        <h5 class="product-title">سماعات بلوتوث لاسلكية</h5>
+                        <div class="product-rating">
+                            ★★★★☆ <span class="rating-count">(45 تقييم)</span>
+                        </div>
+                        <ul class="product-features">
+                            <li>إلغاء الضوضاء النشط</li>
+                            <li>عمر بطارية حتى 30 ساعة</li>
+                            <li>مقاومة للماء والغبار IPX4</li>
+                            <li>تحكم باللمس</li>
+                        </ul>
+                        <div class="product-meta">
+                            <span class="stock-status">متوفر في المخزون</span>
+                            <span class="delivery-time">توصيل خلال 2-3 أيام</span>
+                        </div>
+                        <div class="price-container">
+                            <span class="original-price">249 ر.س</span>
+                            <p class="product-price">199 ر.س</p>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary add-to-cart-btn">
+                                أضف للسلة
+                            </button>
+                            <button class="btn btn-wishlist">♡</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- منتج 2 -->
+            <div class="col-md-3 col-sm-6">
+                <div class="card product-card">
+                    <div class="product-image">
+                        <svg width="100" height="100" viewBox="0 0 100 100">
+                            <rect width="100" height="100" fill="#ddd"/>
+                            <text x="50" y="50" font-family="Arial" font-size="12" fill="#666" text-anchor="middle" dy=".3em">صورة المنتج</text>
+                        </svg>
+                    </div>
+                    <div class="product-details">
+                        <h5 class="product-title">حقيبة ظهر عصرية</h5>
+                        <div class="product-rating">
+                            ★★★★★ <span class="rating-count">(32 تقييم)</span>
+                        </div>
+                        <ul class="product-features">
+                            <li>مقاومة للماء بالكامل</li>
+                            <li>سعة 30 لتر</li>
+                            <li>جيب مخصص للحاسوب المحمول</li>
+                            <li>مادة متينة عالية الجودة</li>
+                        </ul>
+                        <div class="product-meta">
+                            <span class="stock-status low">كمية محدودة</span>
+                            <span class="delivery-time">توصيل خلال 1-2 يوم</span>
+                        </div>
+                        <p class="product-price">299 ر.س</p>
+                        <div class="size-options">
+                            <span class="size-option">صغير</span>
+                            <span class="size-option">وسط</span>
+                            <span class="size-option">كبير</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary add-to-cart-btn">
+                                أضف للسلة
+                            </button>
+                            <button class="btn btn-wishlist">♡</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- منتج 3 -->
+            <div class="col-md-3 col-sm-6">
+                <div class="card product-card">
+                    <span class="discount-badge">جديد</span>
+                    <div class="product-image">
+                        <svg width="100" height="100" viewBox="0 0 100 100">
+                            <rect width="100" height="100" fill="#ddd"/>
+                            <text x="50" y="50" font-family="Arial" font-size="12" fill="#666" text-anchor="middle" dy=".3em">صورة المنتج</text>
+                        </svg>
+                    </div>
+                    <div class="product-details">
+                        <h5 class="product-title">ساعة ذكية</h5>
+                        <div class="product-rating">
+                            ★★★★☆ <span class="rating-count">(28 تقييم)</span>
+                        </div>
+                        <ul class="product-features">
+                            <li>شاشة AMOLED مقاس 1.4 بوصة</li>
+                            <li>مراقبة معدل ضربات القلب</li>
+                            <li>مقاومة للماء حتى 50 متر</li>
+                            <li>عمر بطارية 7 أيام</li>
+                        </ul>
+                        <div class="product-meta">
+                            <span class="stock-status">متوفر في المخزون</span>
+                            <span class="delivery-time">توصيل خلال 2-4 أيام</span>
+                        </div>
+                        <p class="product-price">399 ر.س</p>
+                        <div class="product-actions">
+                            <button class="btn btn-primary add-to-cart-btn">
+                                أضف للسلة
+                            </button>
+                            <button class="btn btn-wishlist">♡</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- منتج 4 -->
+            <div class="col-md-3 col-sm-6">
+                <div class="card product-card">
+                    <div class="product-image">
+                        <svg width="100" height="100" viewBox="0 0 100 100">
+                            <rect width="100" height="100" fill="#ddd"/>
+                            <text x="50" y="50" font-family="Arial" font-size="12" fill="#666" text-anchor="middle" dy=".3em">صورة المنتج</text>
+                        </svg>
+                    </div>
+                    <div class="product-details">
+                        <h5 class="product-title">نظارة شمسية</h5>
+                        <div class="product-rating">
+                            ★★★★★ <span class="rating-count">(56 تقييم)</span>
+                        </div>
+                        <ul class="product-features">
+                            <li>حماية UV400</li>
+                            <li>إطار مقاوم للكسر</li>
+                            <li>تصميم إيطالي فاخر</li>
+                            <li>خفيفة الوزن</li>
+                        </ul>
+                        <div class="product-meta">
+                            <span class="stock-status">متوفر في المخزون</span>
+                            <span class="delivery-time">توصيل خلال 1-2 يوم</span>
+                        </div>
+                        <p class="product-price">499 ر.س</p>
+                        <div class="product-actions">
+                            <button class="btn btn-primary add-to-cart-btn">
+                                أضف للسلة
+                            </button>
+                            <button class="btn btn-wishlist">♡</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer text-center">
+        <div class="container">
+            <p>جميع الحقوق محفوظة © 2024 المتجر الذهبي</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
