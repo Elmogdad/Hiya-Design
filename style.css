@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap');
+
+:root {
+    --gold: #D4AF37;
+    --gold-light: #F4E4BC;
+}
+
+body {
+    font-family: "Cairo", serif;
+}
+
+.navbar {
+    background-color: var(--gold);
+}
+
+.navbar-brand, .nav-link {
+    color: white !important;
+}
+
+.hero-section {
+    background-color: var(--gold-light);
+    padding: 4rem 0;
+}
+
+.card {
+    transition: transform 0.3s;
+    margin-bottom: 20px;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.btn{
+    margin-right: 7px;
+}
+.btn-primary {
+
+    background-color: var(--gold);
+    border-color: var(--gold);
+}
+
+.btn-primary:hover {
+    background-color: #BF9F30;
+    border-color: #BF9F30;
+}
+
+.footer {
+    background-color: var(--gold);
+    color: white;
+    padding: 20px 0;
+    margin-top: 50px;
+}
+.product-card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+    margin-bottom: 25px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.product-features {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0;
+    font-size: 0.9rem;
+}
+
+.product-features li {
+    margin-bottom: 5px;
+    color: #555;
+    display: flex;
+    align-items: center;
+}
+
+.product-features li:before {
+    content: "✓";
+    color: var(--gold);
+    margin-left: 5px;
+    font-weight: bold;
+}
+
+.product-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 0;
+    font-size: 0.85rem;
+    color: #666;
+}
+
+.stock-status {
+    color: #28a745;
+    font-weight: 600;
+}
+
+.stock-status.low {
+    color: #ffc107;
+}
+
+.original-price {
+    text-decoration: line-through;
+    color: #999;
+    font-size: 0.9rem;
+}
+
+.product-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.btn-wishlist {
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    background: transparent;
+    padding: 8px;
+    border-radius: 5px;
+    flex: 0 0 50px;
+}
+
+.btn-wishlist:hover {
+    background: var(--gold-light);
+}
+
+.size-options {
+    display: flex;
+    gap: 5px;
+    margin: 10px 0;
+}
+
+.size-option {
+    border: 1px solid #ddd;
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 0.8rem;
+}
+
+.size-option:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+}
+
+.product-details {
+    padding: 20px;
+}
